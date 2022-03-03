@@ -1,22 +1,19 @@
-    # Project definitions (do not edit)
-Task: pilot-4
-scorer: yoosung
-date: Feb25
+Task: CaliforniaMouse
+scorer: Marler
+# date: 
 multianimalproject: true
 identity: false
 
-    # Project path (change when moving around)
-project_path: C:\Users\marle\Desktop\Yoo Sung Jang\pilot-4-yoosung-2022-02-25
+project_path: ~/CaliforniaMouse-Marler
 
-    # Annotation data set configuration (and individual video cropping parameters)
+# should have 10 videos
 video_sets:
-  C:\Users\marle\Desktop\Yoo Sung Jang\pilot-4-yoosung-2022-02-25\videos\ANMR0001-low.mp4:
-    crop: 0, 480, 0, 270
+  # C:\Users\marle\Desktop\Yoo Sung Jang\pilot-4-yoosung-2022-02-25\videos\ANMR0001-low.mp4:
+  #   crop: 0, 480, 0, 270
 
 individuals:
-- individual1
-- individual2
-- individual3
+- mouseA
+- mouseB
 uniquebodyparts: []
 multianimalbodyparts:
 - bodypart1
@@ -34,32 +31,22 @@ start: 0
 stop: 1
 numframes2pick: 20
 
-    # Plotting configuration
 skeleton_color: black
+# pcutoff possibly lower
 pcutoff: 0.6
-dotsize: 12
+dotsize: 3
 alphavalue: 0.7
 colormap: rainbow
 
-    # Training,Evaluation and Analysis configuration
 TrainingFraction:
-- 0.95
+- 0.80
+# iteration will increment automatically
 iteration: 0
 default_net_type: dlcrnet_ms5
 default_augmenter: multi-animal-imgaug
-snapshotindex: -1
-batch_size: 8
+# snapshats to evaluate on
+snapshotindex: all
+# might have to reduce batch_size depends on GPU situation
+batch_size: 32
 
-    # Cropping Parameters (for analysis and outlier frame detection)
 cropping: false
-    #if cropping is true for analysis, then set the values here:
-x1: 0
-x2: 640
-y1: 277
-y2: 624
-
-    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
-corner2move2:
-- 50
-- 50
-move2corner: true
