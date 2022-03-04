@@ -1,0 +1,29 @@
+# config option we are interested in
+
+individuals:
+- mouseA
+- mouseB
+multianimalbodyparts:
+- bodypart1
+- bodypart2
+- bodypart3
+skeleton:
+- - bodypart1
+  - bodypart2
+- - bodypart2
+  - bodypart3
+- - bodypart1
+  - bodypart3
+  
+  
+numframes2pick: 20
+pcutoff: 0.6
+dotsize: 3
+colormap: rainbow
+
+TrainingFraction:
+- 0.80
+default_net_type: dlcrnet_ms5
+default_augmenter: multi-animal-imgaug
+snapshotindex: all
+batch_size: 32
