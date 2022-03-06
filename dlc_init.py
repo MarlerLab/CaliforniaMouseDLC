@@ -32,14 +32,24 @@ if __name__ == '__main__':
                                   copy_videos=True,
                                   videotype=args.video_type, 
                                   multianimal=True,)
-
+    print(config)
+            
     # edit config.yaml
 
     with open('config_opt.yaml', 'r') as f:
-        try:
-            edits = yaml.safe_load(f)
-        except yaml.YAMLError as e:
-            print(e)
-
+        edits = yaml.safe_load(f)
+        # edits['project_path'] = os.path.abspath('californiamouse-marlerlab')
+        
     auxiliaryfunctions.edit_config(configname=config, 
                                    edits=edits)
+    
+    # # rename project directory
+    # _, directories, _ = next(os.walk('.'))
+    # for d in directories:
+    #     if d.startswith('californiamouse-marlerlab'):
+    #         os.rename(d, 'californiamouse-marlerlab')
+    
+    deeplabcut.extract_frames(config=config,
+                              mode='automatic',
+                              algo='kmeans',
+                              userfeedback=False)
