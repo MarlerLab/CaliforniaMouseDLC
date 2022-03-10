@@ -1,11 +1,17 @@
 import os
 import stat
+import shutil
+import subprocess
 import yaml
 import deeplabcut
 
 from argparse import ArgumentParser
 from deeplabcut import auxiliaryfunctions
 
+def compress(from_, to):
+    cmd = f"ffmpeg -ss 00:00:10 -i {from_} -vf scale=480:-2,setsar=1:1,fps=10 -c:v libx264 -c:a copy {to}"
+    subprocess.call(cmd)
+    
 def set_args():
     parser = ArgumentParser()
     parser.add_argument('--video_dir',
@@ -26,9 +32,10 @@ if __name__ == '__main__':
     head, tail = os.path.split(args.video_dir)
     try:
         tmp_dir = os.path.join(head, f"tmp_{tail}")
-        os.makedir(tmp_dir)
+        os.makedirs(tmp_dir)
     except OSError as e:
         e(f"There already exists directory name {tmp_dir}!")
+        raise
     
     # chmod to exectuable
     os.chmod('./compress.sh', stat.S_IRWXU)
@@ -38,8 +45,10 @@ if __name__ == '__main__':
         vp_to = os.path.join(tmp_dir, vn)
         print(f"compress video from {vp} to {vp_to}")
         # os.system(f'./compress.sh {vp} {vp_to}')
+        compress(vp, vp_to)
+        
+    videos = [os.path.join(tmp_dir, vn) for vn in videos]
     
-    raise
     # later take high-quality videos to low-quality videos (using compress.sh)
     # print(videos)
 
@@ -50,15 +59,17 @@ if __name__ == '__main__':
                                   videotype=args.video_type, 
                                   multianimal=True,)
     print(config)
+    print(f"removed {tmp_dir}")
+    shutil.rmtree(tmp_dir)
             
-    # edit config.yaml
+#     # edit config.yaml
 
-    with open('config_opt.yaml', 'r') as f:
-        edits = yaml.safe_load(f)
-        # edits['project_path'] = os.path.abspath('californiamouse-marlerlab')
+#     with open('config_opt.yaml', 'r') as f:
+#         edits = yaml.safe_load(f)
+#         # edits['project_path'] = os.path.abspath('californiamouse-marlerlab')
         
-    auxiliaryfunctions.edit_config(configname=config, 
-                                   edits=edits)
+#     auxiliaryfunctions.edit_config(configname=config, 
+#                                    edits=edits)
     
     # # rename project directory
     # _, directories, _ = next(os.walk('.'))
