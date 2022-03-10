@@ -1,4 +1,5 @@
 import os
+import stat
 import yaml
 import deeplabcut
 
@@ -20,9 +21,25 @@ def set_args():
 
 if __name__ == '__main__':
     args = set_args()
-    videos = [os.path.join(args.video_dir, vn) for vn in os.listdir(args.video_dir)
+    videos = [vn for vn in os.listdir(args.video_dir)
               if vn.split('.')[-1] == args.video_type]
-
+    head, tail = os.path.split(args.video_dir)
+    try:
+        tmp_dir = os.path.join(head, f"tmp_{tail}")
+        os.makedir(tmp_dir)
+    except OSError as e:
+        e(f"There already exists directory name {tmp_dir}!")
+    
+    # chmod to exectuable
+    os.chmod('./compress.sh', stat.S_IRWXU)
+    for vn in videos:
+        # compress videos to tmp_{tail} directory
+        vp = os.path.join(args.video_dir, vn)
+        vp_to = os.path.join(tmp_dir, vn)
+        print(f"compress video from {vp} to {vp_to}")
+        # os.system(f'./compress.sh {vp} {vp_to}')
+    
+    raise
     # later take high-quality videos to low-quality videos (using compress.sh)
     # print(videos)
 
