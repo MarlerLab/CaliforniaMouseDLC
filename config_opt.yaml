@@ -4,16 +4,22 @@ individuals:
 - mouseA
 - mouseB
 multianimalbodyparts:
-- bodypart1
-- bodypart2
-- bodypart3
+- nose
+- left_ear
+- right_ear
+- tail_base
+
 skeleton:
-- - bodypart1
-  - bodypart2
-- - bodypart2
-  - bodypart3
-- - bodypart1
-  - bodypart3
+- - nose
+  - left_ear
+- - nose
+  - right_ear
+- - left_ear
+  - right_ear
+- - left_ear
+  - tail_base
+- - right_ear
+  - tail_base
   
   
 numframes2pick: 20
