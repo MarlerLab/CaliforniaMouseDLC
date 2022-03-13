@@ -37,8 +37,6 @@ if __name__ == '__main__':
         e(f"There already exists directory name {tmp_dir}!")
         raise
     
-    # chmod to exectuable
-    os.chmod('./compress.sh', stat.S_IRWXU)
     for vn in videos:
         # compress videos to tmp_{tail} directory
         vp = os.path.join(args.video_dir, vn)
@@ -62,14 +60,14 @@ if __name__ == '__main__':
     print(f"removed {tmp_dir}")
     shutil.rmtree(tmp_dir)
             
-#     # edit config.yaml
+    # edit config.yaml
 
-#     with open('config_opt.yaml', 'r') as f:
-#         edits = yaml.safe_load(f)
-#         # edits['project_path'] = os.path.abspath('californiamouse-marlerlab')
+    with open('config_opt.yaml', 'r') as f:
+        edits = yaml.safe_load(f)
+        # edits['project_path'] = os.path.abspath('californiamouse-marlerlab')
         
-#     auxiliaryfunctions.edit_config(configname=config, 
-#                                    edits=edits)
+    auxiliaryfunctions.edit_config(configname=config, 
+                                   edits=edits)
     
     # # rename project directory
     # _, directories, _ = next(os.walk('.'))
