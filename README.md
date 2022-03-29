@@ -23,4 +23,7 @@ python dlc_label.py
 
 # start training model
 python dlc_train.py
+
+# generate labeled videos
+python dlc_generate.py --video_dir [VIDEO_DIRECTORY]
 ```
