@@ -4,26 +4,24 @@ individuals:
 - mouseA
 - mouseB
 multianimalbodyparts:
-- nose
-- left_ear
-- right_ear
-- tail_base
+- 1
+- 2
+- 3
+- 4
+- 5
 
 skeleton:
-- - nose
-  - left_ear
-- - nose
-  - right_ear
-- - left_ear
-  - right_ear
-- - left_ear
-  - tail_base
-- - right_ear
-  - tail_base
+- - 1
+  - 2
+- - 2
+  - 3
+- - 3
+  - 4
+- - 4
+  - 5
   
-  
-numframes2pick: 20
-pcutoff: 0.6
+numframes2pick: 250
+pcutoff: 0.1
 dotsize: 3
 colormap: rainbow
 
