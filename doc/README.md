@@ -30,25 +30,38 @@ The documentation will guide us through general labeling prcoess and how to labe
 
 For the purpose of our reserach, two mice and their bodyparts are labeled for each frame.
 * mouseA
-  - 1
-  - 2
-  - 3
-  - 4
+  - a
+  - b
+  - c
+  - d
+  - e
   
 * mouseB
-  - 1
-  - 2
-  - 3
-  - 4
+  - a
+  - b
+  - c
+  - d
+  - e
 
 Consistent data is the most important aspect of training a model.
 A 1000 diverse frames are sampled from videos, so it will be often the case it is difficult to locate their bodyparts.
 Here, we need to decide if we label their approximate location or do not label at all.
 This we will learn from looking at examples
 
-
-_TBA_
+### Examples
 <figure class="image">
-    <img src="example.png" alt="example.png" width="50%">
-    <figcaption>example.png</figcaption>
+    <img src="images/examples/img1024_individual.png" alt="example.png" width="50%">
+    <figcaption>Normally all bodyparts are visible.</figcaption>
+</figure>
+<figure class="image">
+    <img src="images/examples/img0322_individual.png" alt="example.png" width="50%">
+    <figcaption>A mouse on the right is completely hidden. Only label the mouse on the left.</figcaption>
+</figure>
+<figure class="image">
+    <img src="images/examples/img0236_individual.png" alt="example.png" width="50%">
+    <figcaption>A mouse on the right is partially hiding. Label only visible body parts.</figcaption>
+</figure>
+<figure class="image">
+    <img src="images/examples/img0019_individual.png" alt="example.png" width="50%">
+    <figcaption>There is no mice found so should not label</figcaption>
 </figure>

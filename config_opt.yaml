@@ -4,23 +4,23 @@ individuals:
 - mouseA
 - mouseB
 multianimalbodyparts:
-- 1
-- 2
-- 3
-- 4
-- 5
+- a
+- b
+- c
+- d
+- e
 
 skeleton:
-- - 1
-  - 2
-- - 2
-  - 3
-- - 3
-  - 4
-- - 4
-  - 5
+- - a
+  - b
+- - b
+  - c
+- - c
+  - d
+- - d
+  - e
   
-numframes2pick: 250
+numframes2pick: 80
 pcutoff: 0.1
 dotsize: 3
 colormap: rainbow
