@@ -63,5 +63,9 @@ This we will learn from looking at examples
 </figure>
 <figure class="image">
     <img src="images/examples/img0019_individual.png" alt="example.png" width="50%">
-    <figcaption>There is no mice found so should not label</figcaption>
+    <figcaption>There is no mice found so should not label.</figcaption>
+</figure>
+<figure class="image">
+    <img src="images/examples/img1157_individual.png" alt="example.png" width="50%">
+    <figcaption>One mouse is standing. Label their spine.</figcaption>
 </figure>
