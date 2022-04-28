@@ -4,18 +4,19 @@ import shutil
 import subprocess
 import yaml
 import deeplabcut
+import utils
 
 from argparse import ArgumentParser
 from deeplabcut import auxiliaryfunctions
 
 
-def compress(from_, to):
+def compress(from_, to, fps=10):
     """Compress video to lower resolution and fps
     Parameter:
         - from_: input path
         - to: output path
     """
-    cmd = f"ffmpeg -ss 00:00:10 -i {from_} -vf scale=960:-2,setsar=1:1,fps=10 -c:v libx264 -c:a copy {to}"
+    cmd = f"ffmpeg -ss 00:00:10 -i {from_} -vf scale=960:-2,setsar=1:1,fps={fps} -c:v libx264 -c:a copy {to}"
     subprocess.call(cmd)
     
     

@@ -25,10 +25,10 @@ def set_args():
                         default=100_000,
                         type=int)
     parser.add_argument('--train',   # --no-train for False
-                        action=argparse.BooleanOptionalAction,
+                        # action=argparse.BooleanOptionalAction,
                         default=True)
     parser.add_argument('--eval',     # --no-eval for False 
-                        action=argparse.BooleanOptionalAction,
+                        # action=argparse.BooleanOptionalAction,
                         default=True)
     args = parser.parse_args()
     return args
